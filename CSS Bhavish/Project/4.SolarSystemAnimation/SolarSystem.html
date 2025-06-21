@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .solar-system {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sun {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, yellow, orange, red);
+      border-radius: 50%;
+      position: absolute;
+      z-index: 10;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: spin infinite;
+    }
+
+    .planet {
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .planet.mercury {
+      width: 15px;
+      height: 15px;
+      background: gray;
+      animation-duration: 7s;
+    }
+
+    .planet.venus {
+      width: 25px;
+      height: 25px;
+      background: gold;
+      animation-duration: 10s;
+    }
+
+    .planet.earth {
+      width: 30px;
+      height: 30px;
+      background:greenyellow;
+      animation-duration: 15s;
+    }
+
+    .planet.mars {
+      width: 20px;
+      height: 20px;
+      background: red;
+      animation-duration: 20s;
+    }
+
+    .planet.jupiter {
+      width: 60px;
+      height: 60px;
+      background: orange;
+      animation-duration: 30s;
+    }
+
+    .planet.saturn {
+      width: 50px;
+      height: 50px;
+      background: khaki;
+      animation-duration: 35s;
+    }
+
+    .planet.uranus {
+      width: 40px;
+      height: 40px;
+      background: lightblue;
+      animation-duration: 40s;
+    }
+
+    .planet.neptune {
+      width: 45px;
+      height: 45px;
+      background: royalblue;
+      animation-duration: 45s;
+    }
+
+    .moon-orbit {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: moon-spin 3s linear infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .moon {
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes moon-spin {
+      from {
+        transform: rotate(0deg) translate(-50%, -50%);
+      }
+      to {
+        transform: rotate(360deg) translate(-50%, -50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="solar-system">
+    <div class="sun"></div>
+
+    <div class="orbit" style="width: 200px; height: 200px; animation-duration: 7s;">
+      <div class="planet mercury"></div>
+    </div>
+
+    <div class="orbit" style="width: 300px; height: 300px; animation-duration: 10s;">
+      <div class="planet venus"></div>
+    </div>
+
+    <div class="orbit" style="width: 400px; height: 400px; animation-duration: 15s;">
+      <div class="planet earth">
+        <div class="moon-orbit">
+          <div class="moon"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width: 500px; height: 500px; animation-duration: 20s;">
+      <div class="planet mars"></div>
+    </div>
+
+    <div class="orbit" style="width: 700px; height: 700px; animation-duration: 30s;">
+      <div class="planet jupiter"></div>
+    </div>
+
+    <div class="orbit" style="width: 850px; height: 850px; animation-duration: 35s;">
+      <div class="planet saturn"></div>
+    </div>
+
+    <div class="orbit" style="width: 950px; height: 950px; animation-duration: 40s;">
+      <div class="planet uranus"></div>
+    </div>
+
+    <div class="orbit" style="width: 1050px; height: 1050px; animation-duration: 45s;">
+      <div class="planet neptune"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transform</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 2px solid darkslategray;
+      background-color: lightblue;
+      border-radius: 5px;;
+      padding: 10px;
+      margin: 25px;
+      transition: transform 0.5s;
+    }
+
+    .translate:hover {
+      transform: translate(50px, 50px);
+    }
+    
+    .translate1:hover {
+      transform: translate(50px, 100px);
+    }
+
+    
+    .translate2:hover {
+      transform: translate(100px, 50px);
+    }
+
+    
+    .translate3:hover {
+      transform: translatex(50px);
+    }
+
+    
+    .translate4:hover {
+      transform: translatey(50px);
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="box translate">Translate</div>
+  <div class="box translate1">Translate</div>
+  <div class="box translate2">Translate</div>
+  <div class="box translate3">Translate</div>
+  <div class="box translate4">Translate</div>
+
+  
+</body>
+</html>

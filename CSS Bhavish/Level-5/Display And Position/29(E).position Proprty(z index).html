@@ -1,0 +1,56 @@
+<!-- Absolutely! The `z-index` property in CSS works in conjunction with positioning properties (`relative`, `absolute`, `fixed`, `sticky`) to control the stacking order of elements. Elements with a higher `z-index` value will appear in front of elements with a lower `z-index` value. Here's an example to illustrate how it works: -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.box1 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  z-index: 1; /* Lower z-index */
+}
+
+.box2 {
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  z-index: 2; /* Higher z-index */
+}
+</style>
+</head>
+<body>
+
+<h2>CSS z-index Property</h2>
+
+<div class="container">
+  <div class="box1">Box 1</div>
+  <div class="box2">Box 2</div>
+</div>
+
+</body>
+</html>
+
+<!-- 
+In this example:
+- The `.container` element is positioned relatively to serve as the reference point for the absolutely positioned child elements.
+- The `.box1` element is given a `z-index` value of `1`.
+- The `.box2` element is given a `z-index` value of `2`.
+
+With the higher `z-index` value, the `.box2` element will appear in front of the `.box1` element, even though it is defined later in the HTML structure. This allows you to control which elements overlay others.
+
+Feel free to adjust the `z-index` values and see how it changes the stacking order! Let me know if you need further assistance or have more questions. -->

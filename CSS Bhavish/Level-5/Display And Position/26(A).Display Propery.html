@@ -1,0 +1,169 @@
+<!-- The display property in CSS is one of the most important properties for controlling the layout and visibility of elements on a web page. It specifies the type of rendering box used for an element, and it affects how an element is displayed, including its positioning and visibility.
+
+Common Values of the display Property
+block:
+
+The element is displayed as a block-level element. It starts on a new line and takes up the full width available.
+
+css
+.block {
+    display: block;
+}
+inline:
+
+The element is displayed as an inline element. It does not start on a new line and only takes up as much width as necessary.
+
+css
+.inline {
+    display: inline;
+}
+inline-block:
+
+The element is formatted as an inline element but accepts block-level element properties like width and height.
+
+css
+.inline-block {
+    display: inline-block;
+}
+none:
+
+The element is not displayed at all (it will not take up any space in the layout).
+
+css
+.none {
+    display: none;
+}
+flex:
+
+The element is displayed as a flexible container. This value is used for implementing flexible layouts.
+
+css
+.flex {
+    display: flex;
+}
+grid:
+
+The element is displayed as a grid container. This value is used for implementing grid layouts.
+
+css
+.grid {
+    display: grid;
+}
+table:
+
+The element is displayed as a table.
+
+css
+.table {
+    display: table;
+}
+Example
+Here is a practical example to illustrate the different display properties: -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .block {
+            display: block;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        .inline {
+            display: inline;
+            background-color: #add8e6;
+            margin-right: 10px;
+        }
+
+        .inline-block {
+            display: inline-block;
+            background-color: #ffcccb;
+            width: 100px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+            background-color: #d3d3d3;
+            padding: 10px;
+        }
+
+        .grid {
+            display: grid;
+            background-color: #e6e6fa;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .table {
+            display: table;
+            width: 100%;
+            background-color: #fffacd;
+            border-collapse: collapse;
+        }
+
+        .table .row {
+            display: table-row;
+        }
+
+        .table .cell {
+            display: table-cell;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">Block Element</div>
+    <span class="inline">Inline Element</span>
+    <span class="inline">Inline Element</span>
+    <div class="inline-block">Inline-Block Element</div>
+    <div class="inline-block">Inline-Block Element</div>
+    <div class="none">This element is not displayed</div>
+    <div class="flex">
+        <div>Flex Item 1</div>
+        <div>Flex Item 2</div>
+        <div>Flex Item 3</div>
+    </div>
+    <div class="grid">
+        <div>Grid Item 1</div>
+        <div>Grid Item 2</div>
+        <div>Grid Item 3</div>
+        <div>Grid Item 4</div>
+    </div>
+    <div class="table">
+        <div class="row">
+            <div class="cell">Table Cell 1</div>
+            <div class="cell">Table Cell 2</div>
+        </div>
+        <div class="row">
+            <div class="cell">Table Cell 3</div>
+            <div class="cell">Table Cell 4</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- Explanation:
+Block: Takes up the full width and starts on a new line.
+
+Inline: Sits in line with text and other inline elements.
+
+Inline-block: Behaves like an inline element but can have a width and height.
+
+None: The element is not rendered in the document.
+
+Flex: Creates a flex container for flexible layouts.
+
+Grid: Creates a grid container for grid-based layouts.
+
+Table: Creates a table-like structure. -->

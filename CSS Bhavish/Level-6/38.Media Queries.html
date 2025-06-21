@@ -1,0 +1,219 @@
+<!-- Media queries are a CSS feature that allows you to apply styles based on the characteristics of the user's device, such as screen size, orientation, resolution, and more. They are essential for creating responsive web designs that look good on all devices, from smartphones to desktop monitors. Here's a detailed look at media queries and how to use them:
+
+### Basic Syntax
+
+A media query consists of a media type and one or more expressions that check for specific conditions. Here's the basic syntax:
+
+```css
+@media (condition) {
+  /* CSS rules */
+}
+```
+
+### Common Media Features
+
+1. **`width` and `height`**: Check the width and height of the viewport.
+2. **`min-width` and `max-width`**: Check if the viewport width is at least (or at most) a certain value.
+3. **`orientation`**: Check if the device is in portrait or landscape mode.
+4. **`resolution`**: Check the resolution of the device.
+
+### Examples
+
+#### Example 1: Responsive Design
+
+Change the background color based on the screen width:
+
+```css
+/* Styles for small screens */
+body {
+  background-color: lightblue;
+}
+
+@media (min-width: 600px) {
+  /* Styles for medium screens */
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Styles for large screens */
+  body {
+    background-color: lightcoral;
+  }
+}
+```
+
+#### Example 2: Orientation
+
+Apply different styles based on the device orientation:
+
+```css
+/* Styles for portrait mode */
+@media (orientation: portrait) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Styles for landscape mode */
+@media (orientation: landscape) {
+  body {
+    font-size: 18px;
+  }
+}
+```
+
+#### Example 3: High-Resolution Screens
+
+Apply styles for devices with high resolution:
+
+```css
+/* Styles for high-resolution screens */
+@media (min-resolution: 2dppx) {
+  body {
+    background-image: url('high-res-background.jpg');
+  }
+}
+```
+
+#### Example 4: Combining Conditions
+
+You can combine multiple conditions using `and`, `not`, and `only`:
+
+```css
+/* Styles for devices that are at least 600px wide and in landscape mode */
+@media (min-width: 600px) and (orientation: landscape) {
+  body {
+    background-color: lightgray;
+  }
+}
+
+/* Styles for screen media type only */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+}
+```
+
+### Example 5: Targeting Specific Devices
+
+You can also target specific devices using media queries. For example, to apply styles only to tablets:
+
+```css
+/* Styles for tablets */
+@media (min-width: 600px) and (max-width: 1024px) {
+  body {
+    padding: 20px;
+  }
+}
+```
+
+### Example 6: Using Logical Operators
+
+You can use logical operators like `and`, `or`, and `not` to create complex media queries:
+
+```css
+/* Styles for screens that are either less than 600px wide or in portrait mode */
+@media (max-width: 600px), (orientation: portrait) {
+  body {
+    background-color: lightyellow;
+  }
+}
+```
+
+### Best Practices
+
+1. **Mobile-First Approach**: Start by writing styles for mobile devices and then use media queries to add styles for larger screens.
+2. **Minimize Complexity**: Avoid overly complex media queries that are hard to maintain.
+3. **Test on Real Devices**: Always test your media queries on actual devices to ensure they work as expected.
+
+### Full Example
+
+Here's a full example of a responsive web page using media queries: -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    /* Styles for small screens */
+    @media (max-width: 599px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    /* Styles for medium screens */
+    @media (min-width: 600px) and (max-width: 1023px) {
+      .container {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    /* Styles for large screens */
+    @media (min-width: 1024px) {
+      .container {
+        padding: 50px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Responsive Web Design</h1>
+    <p>This is an example of a responsive web design using media queries.</p>
+  </div>
+</body>
+</html>
+```
+<!-- 
+In this example, the styles adjust the padding and font sizes based on the screen width, ensuring a pleasant reading experience on all devices.
+
+If you have any more questions or need further details, feel free to ask! -->

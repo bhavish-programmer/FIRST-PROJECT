@@ -1,0 +1,33 @@
+/* Root font size (typically 16px by default) */
+html {
+    font-size: 16px;
+}
+
+/* Header using viewport units */
+.header {
+    height: 20vh; /* 20% of the viewport height */
+    background-color: #f8b400;
+    text-align: center;
+    color: white;
+    padding-top: 5vh; /* Padding relative to viewport height */
+}
+
+/* Heading using em units */
+.header h1 {
+    font-size: 2em; /* 2 times the font size of the header element */
+}
+
+/* Container using percentage */
+.container {
+    width: 80%; /* 80% of the parent's width */
+    margin: 0 auto;
+}
+
+/* Paragraph using rem units */
+.content p {
+    font-size: 1.25rem; /* 1.25 times the root element's font size */
+    line-height: 1.5rem; /* Line height relative to the root element's font size */
+    padding: 2rem; /* Padding relative to the root element's font size */
+    background-color: #e4e4e4;
+    border-radius: 1rem; /* Border radius relative to the root element's font size */
+}

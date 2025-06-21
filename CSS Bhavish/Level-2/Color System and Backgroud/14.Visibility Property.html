@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibility Property</title>
+    <style>
+        .box{ 
+            height: 80px;
+            width: 80px;
+        }
+        #box1 {
+            background-color: red;
+            visibility: hidden;
+            /* visibility:collapse; */
+            }
+        #box2 {
+            background-color: green;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">box 1</div> <br>
+    <div id="box2" class="box">box 2</div>
+</body>
+</html>
+
+
+
+Visibility Property: 
+
+Usage: Controls the visibility of elements without changing the layout.
+Value: Can take cisible, hidden, or collapse as values. 
+span Occupancy: Even When hidden, the element occupies space.
+Interactivity: Hidden element are not accessible to user interactions.

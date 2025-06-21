@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaad Suhana Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgb(253, 253, 253);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu-card {
+            width: 90%;
+            max-width: 700px;
+            background-color: rgb(209, 36, 36);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .menu-details {
+            padding: 15px;
+        }
+
+        .menu-details h2 {
+            font-size: 40px;
+            margin-bottom: 8px;
+            color: #ffcc99;
+        }
+
+        .menu-details p.tagline {
+            font-size: 16px;
+            color: #ffcc99;
+            margin-bottom: 8px;
+        }
+
+        .menu-details h1 {
+            font-size: 30px;
+            color: #ffcc99;
+        }
+
+        .menu-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menu-section {
+            width: 30%; /* Adjusted to fit three sections side by side */
+            margin: 10px; /* Space between sections */
+        }
+
+        .menu-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        .menu-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff8e1;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .menu-list li span {
+            font-weight: bold;
+        }
+
+        .additional-info {
+            font-size: 12px;
+            color: black;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 800px) {
+            .menu-section {
+                width: 45%; /* Two sections side by side on medium screens */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .menu-section {
+                width: 100%; /* Stack sections on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-card">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4d/bf/e4/social-kitchen-is-our.jpg?w=600&h=600&s=1" alt="Swaad Suhana Interior" class="menu-image">
+        <div class="menu-details">
+            <h2>SWAAD SUHANA</h2>
+            <p class="tagline">"A Taste That Warms Your Heart"</p>
+            <h1>MENU</h1>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h3>Veg Indian Snacks</h3>
+                    <ul class="menu-list">
+                        <li><span>Samosa</span> ₹25</li>
+                        <li><span>Vada Pav</span> ₹30</li>
+
+                        <li><span>Pav Bhaji</span> ₹80</li>
+                        <li><span>Paneer Pakora</span> ₹60</li>
+                        <li><span>Masala Dosa</span> ₹90</li>
+                        <li><span>Kachori</span> ₹20</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h3>Non-Veg Dishes</h3>
+                    <ul class="menu-list">
+                        <li><span>Fish fry</span> ₹180</li>
+                        <li><span>Chicken Tikka </span> ₹220</li>
+                        <li><span>chicken Pizza</span> ₹250</li>
+                        <li><span>Chicken Kathi Roll</span> ₹160</li>
+                        <li><span>Biryani</span> ₹200</li>
+                        <li><span>Egg Sandwich</span> ₹120</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h3>Drinks</h3>
+                    <ul class="menu-list">
+                        <li><span>Coffee</span> ₹40</li>
+                        <li><span>Tea</span> ₹30</li>
+                        <li><span>Orange Juice</span> ₹60</li>
+                        <li><span>Coca Cola</span> ₹60</li>
+                        <li><span>Mountain Dew</span> ₹60</li>
+                        <li><span>Fanta</span> ₹45</li>
+                    </ul>
+                </div>
+            </div>
+            <p><strong>Address:</strong> 4532 Coffee Street, near Broken Bridge, Nagpur</p>
+            <p><strong>Contact:</strong> 8679357990</p>
+            <p><strong>Email:</strong> swaadsuhana1@gmail.com</p>
+            <p class="additional-info"><strong>Additional Info:</strong> Free Wi-Fi, Outdoor Seating, Vegan Options Available</p>
+        </div>
+    </div>
+</body>
+</html>

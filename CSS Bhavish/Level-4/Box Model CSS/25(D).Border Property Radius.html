@@ -1,0 +1,81 @@
+<!-- The `box-sizing` property in CSS is used to control how the width and height of an element are calculated. By default, the width and height properties of an element only include the content, not the padding, border, or margin. The `box-sizing` property allows you to change this behavior and include padding and borders in the width and height calculations.
+
+### Values
+There are two main values for the `box-sizing` property:
+
+1. **`content-box`** (default):
+   - The width and height properties include only the content. Padding, border, and margin are not included in the width and height calculations.
+   css:
+   .content-box {
+       width: 200px;
+       padding: 20px;
+       border: 10px solid black;
+       box-sizing: content-box;
+   }
+   
+
+2. **`border-box`**:
+   - The width and height properties include the content, padding, and border. Margins are not included.
+   css:
+   .border-box {
+       width: 200px;
+       padding: 20px;
+       border: 10px solid black;
+       box-sizing: border-box;
+   }
+   
+
+### Example:-
+Here is a practical example to illustrate how the `box-sizing` property works: -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .content-box {
+            width: 200px;
+            padding: 20px;
+            border: 10px solid black;
+            box-sizing: content-box;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .border-box {
+            width: 200px;
+            padding: 20px;
+            border: 10px solid black;
+            box-sizing: border-box;
+            background-color: #add8e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        Content-box example
+    </div>
+    <div class="border-box">
+        Border-box example
+    </div>
+</body>
+</html>
+
+
+<!-- ### Explanation:
+- **Content-box**: The element has a width of 200px, but the total width will be 250px (200px content + 20px padding on each side + 10px border on each side).
+- **Border-box**: The element has a width of 200px, including the padding and border, so the content area will be smaller to accommodate the padding and border within the 200px width.
+
+Using `box-sizing: border-box;` is often preferred in modern web design because it makes it easier to manage element sizes and create layouts that are consistent and predictable. 
+
+Here's how to apply `box-sizing: border-box;` to all elements on your page:
+
+
+css:
+* {
+    box-sizing: border-box;
+}
+
+
+
+This ensures that the padding and border are included in the total width and height for all elements, making your layout calculations more intuitive. If you need further examples or have any questions, feel free to ask! -->

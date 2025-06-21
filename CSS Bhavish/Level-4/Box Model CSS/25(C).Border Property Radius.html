@@ -1,0 +1,88 @@
+<!-- The `border-radius` property in CSS is used to create rounded corners for elements. This property can be applied to all four corners of an element, and you can specify different values for each corner.
+
+### Syntax
+You can specify `border-radius` in several ways:
+
+1. **Uniform radius for all corners**:
+   css:
+   border-radius: 10px;
+   
+   This sets a 10-pixel radius on all four corners.
+
+2. **Different radii for each corner**:
+   css:
+   border-radius: 10px 20px 30px 40px;
+   
+   This sets the radii in the following order: top-left, top-right, bottom-right, and bottom-left.
+
+3. **Shorthand for paired corners**:
+   css:
+   border-radius: 10px 20px;
+   
+   This sets the top-left and bottom-right corners to 10 pixels and the top-right and bottom-left corners to 20 pixels.
+
+4. **Elliptical radii**:
+   css:
+   border-radius: 50px / 30px;
+   
+   This sets the horizontal radius to 50 pixels and the vertical radius to 30 pixels, creating an elliptical shape.
+
+### Example
+Here is a practical example to illustrate how the `border-radius` property works: -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            padding-left: 10px;
+            border-radius: 10px; /* Uniform radius */
+            margin-bottom: 20px;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 100px;
+            background-color: #add8e6;
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px 20px 30px 40px; /* Different radii for each corner */
+            margin-bottom: 20px;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 100px;
+            background-color: #ffcccb;
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 50px / 30px; /* Elliptical radius */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        Box with uniform radius.
+    </div>
+    <div class="box2">
+        Box with different radii for each corner.
+    </div>
+    <div class="box3">
+        Box with elliptical radius.
+    </div>
+</body>
+</html>
+
+
+<!-- ### Explanation:
+- **Uniform Radius**: The `.box1` class sets a uniform 10-pixel radius for all corners.
+- **Different Radii**: The `.box2` class sets different radii for each corner (10px, 20px, 30px, 40px).
+- **Elliptical Radius**: The `.box3` class sets an elliptical radius with a horizontal radius of 50 pixels and a vertical radius of 30 pixels.
+
+The `border-radius` property is a great way to add visual interest and soften the look of elements on your web pages. If you have any specific questions or need further examples, feel free to ask! -->

@@ -1,0 +1,82 @@
+<!-- The flex-shrink property in CSS defines the ability of a flex item to shrink if necessary. If there's not enough space in the flex container, flex-shrink specifies how much a flex item should shrink relative to the rest of the flex items. It takes a unitless number as a value, often referred to as a "factor."
+
+Here's a quick example:
+
+css
+.item {
+  flex-shrink: 2;
+}
+In this example, the flex item with the class item will shrink twice as much as flex items with a flex-shrink value of 1 when the container runs out of space. If the value is 0, the item will not shrink at all. -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Direction</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    height: 200px;
+    width: 200px;
+    border: 3px solid black;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#heading {
+   text-align: center;
+}
+#container{
+    height: 650px;
+    width: 620px;
+    padding: 10px;
+    margin:20px;
+    border: 3px solid black;
+    background-color:antiquewhite;
+    
+    display: flex;
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+#box1{
+    background-color: aqua;
+    /* align-self: end; */
+    flex-shrink: 0; /* as it is size of box */
+}
+#box2{
+    background-color:blueviolet;
+     flex-shrink: 1;  /* (by default) */
+     /* flex-shrink: 2; */
+     flex-shrink: 4;
+     /* flex-shrink: 0.5; */
+}
+#box3{
+    background-color:gold;
+    /* align-self: center; */
+}
+#box4{
+    background-color:crimson;
+}
+    </style>
+</head>
+<body>
+    <h1 id="heading">Flex Container</h1>
+        <div id="container">
+            <div id="box1" class="box">Flex Item 1</div>
+            <div id="box2" class="box">Flex Item 2</div>
+            <div id="box3" class="box">Flex Item 3</div>
+            <div id="box4" class="box">Flex Item 4</div>
+</body>
+</html>

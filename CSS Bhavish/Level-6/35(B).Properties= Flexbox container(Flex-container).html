@@ -1,0 +1,80 @@
+<!-- The flex-wrap property in CSS Flexbox controls whether the flex items should wrap onto multiple lines or stay on a single line. Here are the possible values:
+
+nowrap: All flex items will be on a single line (default).
+
+wrap: Flex items will wrap onto multiple lines, from top to bottom.
+
+wrap-reverse: Flex items will wrap onto multiple lines, from bottom to top.
+
+Here's a quick example: -->
+
+css
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Change this to nowrap or wrap-reverse to see different behaviors */
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Direction</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    height: 150px;
+    width: 150px;
+    border: 3px solid black;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#heading {
+   text-align: center;
+}
+#container{
+    height: 650px;
+    width: 620px;
+    padding: 10px;
+    margin:20px;
+    border: 3px solid black;
+    background-color:antiquewhite;
+    
+    display: flex;
+    flex-wrap:nowrap;
+    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+
+}
+#box1{
+    background-color: aqua;
+}
+#box2{
+    background-color:blueviolet;
+}
+#box3{
+    background-color:gold;
+}
+#box4{
+    background-color:crimson;
+}
+    </style>
+</head>
+<body>
+    <h1 id="heading">Flex Container</h1>
+        <div id="container">
+            <div id="box1" class="box">Flex Item 1</div>
+            <div id="box2" class="box">Flex Item 2</div>
+            <div id="box3" class="box">Flex Item 3</div>
+            <div id="box4" class="box">Flex Item 4</div>
+            <div id="box4" class="box">Flex Item 5</div>
+            <div id="box4" class="box">Flex Item 6</div>
+            <div id="box4" class="box">Flex Item 7</div>
+    
+</body>
+</html>

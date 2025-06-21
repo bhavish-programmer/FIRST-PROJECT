@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transform</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 2px solid darkslategray;
+      background-color: lightblue;
+      border-radius: 5px;;
+      padding: 10px;
+      margin: 50px;
+      transition: transform 0.5s;
+    }
+
+    .scale1:hover {
+      transform: scale(1.5);
+    }
+
+
+    .scale2:hover {
+      transform: scale(2);
+    }
+
+    .scale3:hover {
+      transform: scale(4);
+    }
+
+    .scale4:hover {
+      transform: scalex(2);
+    }
+
+   
+    .scale5:hover {
+      transform: scaley(2);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box scale1">Scale</div>
+  <div class="box scale2">Scale twice</div>
+  <div class="box scale3">Scale 4 times</div>
+  <div class="box scale4">Scale x twice</div>
+  <div class="box scale5">Scale y twice</div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO App</title>
+  <style>
+    /* Styling for the TODO App */
+    #app {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      margin: 5px 0;
+      background: #f0f0f0;
+      border-radius: 5px;
+    }
+    .completed span {
+      text-decoration: line-through;
+      color: gray;
+    }
+    button {
+      border: none;
+      background: red;
+      color: white;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>TODO App</h1>
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button id="addTodoBtn">Add Task</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    // State
+    let todos = [];
+
+    // Select DOM elements
+    const todoInput = document.getElementById('todoInput');
+    const addTodoBtn = document.getElementById('addTodoBtn');
+    const todoList = document.getElementById('todoList');
+
+    // Add a new task
+    function addTodo() {
+      const task = todoInput.value.trim();
+      if (task) {
+        todos.push({ text: task, completed: false });
+        todoInput.value = '';
+        renderTodos();
+      } else {
+        alert('Task cannot be empty!');
+      }
+    }
+
+    // Toggle task completion
+    function toggleTodo(index) {
+      todos[index].completed = !todos[index].completed;
+      renderTodos();
+    }
+
+    // Delete a task
+    function deleteTodo(index) {
+      todos.splice(index, 1);
+      renderTodos();
+    }
+
+    // Render the tasks
+    function renderTodos() {
+      todoList.innerHTML = '';
+      todos.forEach((todo, index) => {
+        const todoItem = document.createElement('li');
+        todoItem.className = todo.completed ? 'completed' : '';
+        todoItem.innerHTML = `
+          <span onclick="toggleTodo(${index})">${todo.text}</span>
+          <button onclick="deleteTodo(${index})">Delete</button>
+        `;
+        todoList.appendChild(todoItem);
+      });
+    }
+
+    // Event listeners
+    addTodoBtn.addEventListener('click', addTodo);
+
+    todoInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        addTodo();
+      }
+    });
+  </script>
+</body>
+</html>
+

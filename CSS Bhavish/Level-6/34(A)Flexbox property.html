@@ -1,0 +1,104 @@
+<!-- Key Properties of a Flex Container
+flex-direction: Defines the direction of the main axis. The default is row.
+
+row: Horizontal, left to right.
+
+row-reverse: Horizontal, right to left.
+
+column: Vertical, top to bottom.
+
+column-reverse: Vertical, bottom to top.
+
+flex-wrap: Determines whether flex items should wrap onto multiple lines.
+
+nowrap: All items are on a single line (default).
+
+wrap: Items will wrap onto multiple lines, from top to bottom.
+
+wrap-reverse: Items will wrap onto multiple lines, from bottom to top.
+
+justify-content: Aligns flex items along the main axis.
+
+flex-start: Items are aligned at the start of the container.
+
+flex-end: Items are aligned at the end of the container.
+
+center: Items are centered.
+
+space-between: Items are evenly distributed with the first item at the start and the last item at the end.
+
+space-around: Items are evenly distributed with equal space around them.
+
+space-evenly: Items are evenly distributed with equal space between them.
+
+align-items: Aligns flex items along the cross axis.
+
+flex-start: Items are aligned at the start of the cross axis.
+
+flex-end: Items are aligned at the end of the cross axis.
+
+center: Items are centered along the cross axis.
+
+baseline: Items are aligned based on their baseline.
+
+stretch: Items are stretched to fill the container (default).
+
+align-content: Aligns flex lines (when there are multiple lines).
+
+flex-start: Lines are packed at the start of the container.
+
+flex-end: Lines are packed at the end of the container.
+
+center: Lines are packed at the center.
+
+space-between: Lines are evenly distributed with the first line at the start and the last line at the end.
+
+space-around: Lines are evenly distributed with equal space around them.
+
+space-evenly: Lines are evenly distributed with equal space between them.
+
+stretch: Lines stretch to fill the container (default). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Direction</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 id="heading">Flex Container</h1>
+        <div id="container">
+            <div id="box1" class="box">Flex Item 1</div>
+            <div id="box2" class="box">Flex Item 2</div>
+            <div id="box3" class="box">Flex Item 3</div>
+            <div id="box4" class="box">Flex Item 4</div>
+</body>
+
+
+
+<!-- 
+The flex property in CSS is a powerful tool for creating flexible and responsive layouts. Here's a brief summary of how it automatically adjusts height and width between containers:
+
+The flex property is a shorthand for setting three other properties: flex-grow, flex-shrink, and flex-basis. When you apply display: flex to a container, it enables the container's children (flex items) to adjust their size dynamically.
+
+flex-grow determines how much a flex item will grow relative to the other items in the container when there is extra space.
+
+flex-shrink specifies how a flex item will shrink relative to the other items in the container when there is not enough space.
+
+flex-basis defines the initial size of a flex item before any growing or shrinking occurs.
+
+By combining these properties, you can create layouts where the elements adjust their dimensions automatically to fit the available space. This is especially useful for responsive design, where you want your layout to adapt seamlessly to different screen sizes.
+
+Here's a quick example in code:
+
+css
+.container {
+  display: flex;
+}
+
+.item {
+  flex: 1; /* Equivalent to flex: 1 1 0; */
+}
+In this example, all the flex items within the .container will grow and shrink equally, distributing space evenly among themselves. -->

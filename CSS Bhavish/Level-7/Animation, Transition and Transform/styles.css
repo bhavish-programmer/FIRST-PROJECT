@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .box {
+    padding: 10PX;;
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s, transform 0.5s;
+  }
+  
+  .box:hover {
+    background-color: lightcoral;
+    transform: scale(1.2);
+  }

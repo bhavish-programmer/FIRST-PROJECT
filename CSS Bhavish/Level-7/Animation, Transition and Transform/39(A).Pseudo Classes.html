@@ -1,0 +1,139 @@
+<!-- Pseudo Classes:
+
+-Used to define special states of html elements.
+-Syntax: selector:pseudo-class{style.}
+-Common example: :hover, : active, : first-child.
+-Target elements based on their position or user action. 
+ -->
+
+<!-- Pseudo-classes in CSS are used to define the special states of an element. They are typically used to apply styles based on user interaction, document structure, and the relationship between elements. Here's an overview of some commonly used pseudo-classes:
+
+1. :hover
+Applies when the user designates an element (typically with a pointing device), but does not activate it. Useful for changing styles when an element is hovered over by the mouse.
+
+css
+button:hover {
+  background-color: yellow;
+}
+2. :active
+Applies when an element is being activated by the user, for example, when a button is being pressed.
+
+css
+button:active {
+  background-color: orange;
+}
+3. :focus
+Applies when an element has gained focus (e.g., when the user clicks on an input field).
+
+css
+input:focus {
+  border-color: blue;
+}
+4. :nth-child()
+Matches elements based on their position in a group of siblings.
+
+css
+li:nth-child(odd) {
+  background-color: lightgray;
+}
+5. :first-child
+Matches the first element among a group of sibling elements.
+
+css
+p:first-child {
+  font-weight: bold;
+}
+6. :last-child
+Matches the last element among a group of sibling elements.
+
+css
+p:last-child {
+  font-weight: bold;
+}
+7. :nth-of-type()
+Matches elements based on their position within a parent, but only counting siblings of the same type.
+
+css
+p:nth-of-type(2) {
+  color: red;
+}
+8. :not()
+Selects elements that do not match a given selector.
+
+css
+input:not([type="submit"]) {
+  background-color: lightyellow;
+}
+9. :checked
+Matches any radio (<input type="radio">), checkbox (<input type="checkbox">), or option (<option>) element that is checked or selected.
+
+css
+input:checked {
+  background-color: lightgreen;
+}
+10. :disabled
+Matches any disabled form element.
+
+css
+input:disabled {
+  background-color: lightgray;
+}
+Example
+Here's a full example incorporating some of the pseudo-classes mentioned above: -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-Classes Example</title>
+  <style>
+    button:hover {
+      background-color: yellow;
+    }
+    button:active {
+      background-color: orange;
+    }
+    input:focus {
+      border-color: blue;
+    }
+    li:nth-child(odd) {
+      background-color: lightgray;
+    }
+    p:first-child {
+      font-weight: bold;
+    }
+    p:last-child {
+      font-weight: bold;
+    }
+    input:checked {
+      background-color: lightgreen;
+    }
+    input:disabled {
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <button>Hover and Click Me</button>
+  <br><br>
+  <input type="text" placeholder="Focus on me">
+  <br><br>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+  </ul>
+  <br><br>
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+  <p>Last paragraph</p>
+  <br><br>
+  <input type="checkbox" id="checkbox1">
+  <label for="checkbox1">Check me</label>
+  <br><br>
+  <input type="text" disabled value="I'm disabled">
+</body>
+</html>

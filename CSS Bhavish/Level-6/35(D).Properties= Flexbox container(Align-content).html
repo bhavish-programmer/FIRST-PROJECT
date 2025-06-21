@@ -1,0 +1,92 @@
+<!-- The align-content property in CSS is used to align flex lines within a flex container along the cross-axis (vertical axis), when there's extra space. It's used when you have multiple lines of flex items. Here are the possible values:
+
+flex-start: Lines are packed toward the start of the cross-axis.
+
+flex-end: Lines are packed toward the end of the cross-axis.
+
+center: Lines are centered along the cross-axis.
+
+space-between: Lines are evenly distributed, with the first line at the start and the last line at the end.
+
+space-around: Lines are evenly distributed with equal space around each line.
+
+space-evenly: Lines are evenly distributed with equal space between them.
+
+stretch: Lines stretch to take up the remaining space (default).
+
+Here's a quick example:
+
+css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+In this example, if there are multiple lines of flex items, they will be centered along the cross-axis. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Direction</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    height: 100px;
+    width: 100x;
+    border: 3px solid black;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#heading {
+   text-align: center;
+}
+#container{
+    height: 650px;
+    width: 620px;
+    padding: 10px;
+    margin:20px;
+    border: 3px solid black;
+    background-color:antiquewhite;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* align-content: end; */
+    /* align-content:baseline; */
+    align-content: center;
+}
+#box1{
+    background-color: aqua;
+}
+#box2{
+    background-color:blueviolet;
+}
+#box3{
+    background-color:gold;
+}
+#box4{
+    background-color:crimson;
+}
+    </style>
+</head>
+<body>
+    <h1 id="heading">Flex Container</h1>
+        <div id="container">
+            <div id="box1" class="box">Flex Item 1</div>
+            <div id="box2" class="box">Flex Item 2</div>
+            <div id="box3" class="box">Flex Item 3</div>
+            <div id="box4" class="box">Flex Item 4</div>
+            <div id="box4" class="box">Flex Item 5</div>
+            <div id="box4" class="box">Flex Item 6</div>
+            <div id="box4" class="box">Flex Item 7</div>
+</body>
+</html>

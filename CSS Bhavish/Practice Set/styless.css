@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Nav Bar using Flexbox */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color:burlywood;
+  padding: 10px;
+}
+.nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.nav a:hover {
+  background-color: #575757;
+}
+
+/* Center Image using Flexbox */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+}
+.image-container img {
+  border: 3px solid black;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Three Boxes with Flexbox */
+.box-container {
+  border: 2px solid black;
+  display: flex;
+  margin: 20px 0;
+}
+.box1, .box3 {
+  border: 2px solid black;
+  flex: 0 0 100px;
+  background-color: lightcoral;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.box2 {
+  flex: 1;
+  background-color: lightblue;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Responsive Color Change */
+.color-box {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+@media (min-width: 300px) and (max-width: 400px) {
+  .color-box {
+    background-color: red;
+  }
+}
+@media (min-width: 401px) {
+  .color-box {
+    background-color: blue;
+  }
+}

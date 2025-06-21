@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to My Page</h1>
+    </header>
+    <div class="container">
+        <section class="content">
+            <p>This is a paragraph inside a content container.</p>
+        </section>
+    </div>
+</body>
+</html>
+
+
+
+Explanation:
+Viewport Units (vh and vw): The header's height is set to 20vh, meaning it will take up 20% of the viewport's height, ensuring it adjusts with the screen size. The padding-top is set to 5vh for additional spacing.
+
+em Units: The h1 element inside the header uses 2em for its font size. If the header's font size is 16px (by default), the h1's font size will be 32px (2 x 16px).
+
+rem Units: The paragraph's font size and other properties like line-height, padding, and border-radius are set using rem units. These are based on the root element's font size, making the design consistent throughout.
+
+Percentage: The container’s width is set to 80% of its parent element, with margin auto for centering.
+
+This approach helps create a responsive layout that adjusts well across various screen sizes.

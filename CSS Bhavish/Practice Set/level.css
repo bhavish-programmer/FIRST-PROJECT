@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .progress-container {
+    width: 80%;
+    background-color: #e0e0e0;
+    border: 2px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 0;
+    height: 30px;
+    background-color: #4caf50;
+    border-radius: 15px;
+    transition: width 2s ease-in-out, transform 0.5s;
+  }
+  
+  .bounce {
+    animation: bounce 0.5s ease;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+  

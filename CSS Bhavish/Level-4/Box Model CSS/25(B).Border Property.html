@@ -1,0 +1,44 @@
+<!-- Example:-
+Here is a practical example to illustrate how the border property works: -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            margin: 15px;
+            background-color: #f0f0f0;
+            border: 2px solid black; /* Shorthand for setting width, style, and color */
+        }
+
+        .custom-border {
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            border-top: 3px solid red;
+            border-right: 4px dashed green;
+            border-bottom: 5px dotted blue;
+            border-left: 6px double purple;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        This box has a solid black border.
+    </div>
+    <div class="custom-border">
+        This box has different border styles on each side.
+    </div>
+</body>
+</html>
+
+
+<!-- Explanation:
+Shorthand Property: The .box class uses the shorthand property to set a 2-pixel solid black border on all four sides.
+
+Individual Borders: The .custom-border class sets different border styles, widths, and colors for each side of the element. -->

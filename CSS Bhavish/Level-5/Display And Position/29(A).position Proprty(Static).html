@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position Property</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      .box{
+        height: 70px;
+        width: 70px;
+        background-color:darkgoldenrod;
+        border: 2px-solid rgba(0, 0, 0, 0.829);
+        margin: 20px;
+      }
+      #box1{
+        position: static;
+      }
+      #box2{
+        position: relative;
+        top: 20px;
+        left: 100px;
+      }
+      #box3{
+        position: fixed; 
+        top: 30px; 
+        right: 200px; 
+      }
+      #box4{
+        position: absolute;
+        top: 200px;
+        left: 200px;
+      }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box"> Static </div>
+    <div id="box2" class="box">Relative </div>
+    <div id="box3" class="box">Fixed </div>
+    <div id="box4" class="box">Absolute</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+  
+</body>
+</body>
+</html   >
+
+<!-- 
+* Static(defalt) :- Elements follow the normal document flow.(top, right, bottom, left, z-index would not work)
+* Relative:- Elelments positive adjusted from its normal position.
+* Absolute:- Positions element relative to the nearest posotioned ancester.
+* fized:- Elements positioned relative to the viewport, does not move on scroll. -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  position: static;
+  background-color: blueviolet;
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS position: static;</h2>
+
+<div>This div element has a static position.</div>
+
+</body>
+</html>

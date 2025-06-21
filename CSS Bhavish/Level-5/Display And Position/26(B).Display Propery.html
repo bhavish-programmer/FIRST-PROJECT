@@ -1,0 +1,49 @@
+<!-- Block Elements:- 
+
+Display: Always start on a new line and take up the full width available.
+
+Examples: <div>, <h1>, <p>, <section>, <header>.
+
+size: Can set size of hight and width with easily
+
+Usage: Used for larger structural elements and sections.
+
+
+Inline Elements:-
+
+Display: Do not start on a new line and only take up as much width as necessary.
+
+Examples: <span>, <a>, <strong>, <em>, <img>.
+
+Limited Styling: Can't set size easily of hight and width
+
+Usage: Used for smaller elements that are part of a line of text. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Property</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            background-color: deepskyblue;
+            /* display: block; */
+            /* display: inline; */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">Box 1</div>
+    <div id="box2" class="box">Box 2</div>
+    
+</body>
+</html>
