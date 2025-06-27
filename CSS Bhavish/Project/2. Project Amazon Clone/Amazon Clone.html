@@ -1,64 +1,1680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon Clone</title>
-  <link rel="stylesheet" href="amazon.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Prime - Advanced E-commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        :root {
+            --amazon-blue: #131921;
+            --amazon-light-blue: #232f3e;
+            --amazon-yellow: #febd69;
+            --amazon-orange: #f3a847;
+            --amazon-gray: #eaeded;
+            --amazon-dark-gray: #cccccc;
+            --amazon-text: #0f1111;
+            --amazon-light-text: #565959;
+            --amazon-red: #cc0c39;
+            --amazon-green: #007600;
+        }
+
+        body {
+            background-color: var(--amazon-gray);
+            color: var(--amazon-text);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--amazon-blue);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 100px;
+            margin-right: 15px;
+        }
+
+        .logo img {
+            width: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .deliver-to {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-right: 15px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .deliver-to:hover {
+            border: 1px solid white;
+        }
+
+        .deliver-to i {
+            margin-right: 5px;
+        }
+
+        .deliver-to-text p:first-child {
+            font-size: 12px;
+            color: var(--amazon-dark-gray);
+        }
+
+        .deliver-to-text p:last-child {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .search-container {
+            flex: 1;
+            min-width: 300px;
+            margin: 0 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            height: 40px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-select {
+            background-color: #f3f3f3;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            padding: 0 10px;
+            font-size: 12px;
+            border-right: 1px solid #ddd;
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 0 15px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-button {
+            background-color: var(--amazon-orange);
+            border: none;
+            width: 45px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: var(--amazon-yellow);
+        }
+
+        .search-button i {
+            color: #111;
+            font-size: 18px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .nav-item {
+            color: white;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            border: 1px solid white;
+        }
+
+        .nav-item p:first-child {
+            font-size: 12px;
+        }
+
+        .nav-item p:last-child {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .cart:hover {
+            border: 1px solid white;
+        }
+
+        .cart i {
+            font-size: 30px;
+        }
+
+        .cart-text {
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            background-color: var(--amazon-orange);
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-bottom {
+            display: flex;
+            align-items: center;
+            background-color: var(--amazon-light-blue);
+            padding: 5px 20px;
+            flex-wrap: wrap;
+        }
+
+        .all-menu {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .all-menu:hover {
+            border: 1px solid white;
+        }
+
+        .all-menu i {
+            margin-right: 5px;
+        }
+
+        .header-links {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .header-links a:hover {
+            border: 1px solid white;
+        }
+
+        .prime-link {
+            margin-left: auto;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .prime-link:hover {
+            border: 1px solid white;
+        }
+
+        /* Hero Carousel */
+        .hero-carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin: 10px 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            background: white;
+            margin: 10px 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+            margin: 0 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--amazon-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .category-icon i {
+            font-size: 24px;
+            color: var(--amazon-blue);
+        }
+
+        .category-name {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            color: var(--amazon-text);
+        }
+
+        /* Product Grid */
+        .product-section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--amazon-text);
+        }
+
+        .section-header a {
+            color: #007185;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .section-header a:hover {
+            text-decoration: underline;
+            color: var(--amazon-red);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--amazon-orange);
+        }
+
+        .product-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .product-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .product-title {
+            font-size: 14px;
+            height: 40px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            color: var(--amazon-text);
+            flex-grow: 1;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .product-rating-stars {
+            color: var(--amazon-yellow);
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .product-rating-count {
+            font-size: 12px;
+            color: var(--amazon-light-text);
+            margin-left: 5px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--amazon-text);
+        }
+
+        .product-savings {
+            color: var(--amazon-red);
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .prime-badge {
+            color: var(--amazon-light-text);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .prime-badge i {
+            color: #146eb4;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            background-color: var(--amazon-red);
+            color: white;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            background-color: var(--amazon-orange);
+            border: none;
+            padding: 8px 0;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--amazon-yellow);
+        }
+
+        .wishlist {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .wishlist:hover {
+            background-color: #f8f8f8;
+            border-color: var(--amazon-orange);
+        }
+
+        /* Shopping Cart */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background-color: var(--amazon-light-blue);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 18px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--amazon-red);
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .cart-total {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .checkout-btn {
+            background-color: var(--amazon-orange);
+            color: black;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 0 20px 20px;
+            border-radius: 4px;
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--amazon-yellow);
+        }
+
+        /* Footer */
+        .back-to-top {
+            background-color: var(--amazon-light-blue);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .footer-links {
+            background-color: var(--amazon-blue);
+            padding: 40px 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            background-color: var(--amazon-blue);
+            border-top: 1px solid #3a4553;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 80px;
+            margin: 0 auto 10px;
+        }
+
+        .footer-logo img {
+            width: 100%;
+        }
+
+        .copyright {
+            color: #ddd;
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .header-top {
+                flex-wrap: wrap;
+            }
+            .search-container {
+                order: 3;
+                margin: 10px 0 0;
+                width: 100%;
+            }
+            .header-links {
+                display: none;
+            }
+            .prime-link {
+                display: none;
+            }
+            .hero-carousel {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .deliver-to, .nav-item {
+                display: none;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cart-modal {
+                width: 100%;
+            }
+            .hero-carousel {
+                height: 200px;
+            }
+        }
+
+        /* Animation for cart count */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 0.5s ease;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="images/logo.png" alt="Amazon Logo">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+            </div>
+            
+            <div class="deliver-to">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="deliver-to-text">
+                    <p>Deliver to</p>
+                    <p>United States</p>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <select class="search-select">
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Books</option>
+                        <option>Home & Kitchen</option>
+                        <option>Fashion</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search Amazon">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-item">
+                    <p>Hello, Sign in</p>
+                    <p>Account & Lists</p>
+                </div>
+                
+                <div class="nav-item">
+                    <p>Returns</p>
+                    <p>& Orders</p>
+                </div>
+                
+                <div class="cart" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-text">Cart</div>
+                    <div class="cart-count" id="cart-count">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-bottom">
+            <div class="all-menu">
+                <i class="fas fa-bars"></i>
+                <span>All</span>
+            </div>
+            
+            <div class="header-links">
+                <a href="#">Today's Deals</a>
+                <a href="#">Customer Service</a>
+                <a href="#">Registry</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">Sell</a>
+                <a href="#">Prime</a>
+                <a href="#">New Releases</a>
+                <a href="#">Music</a>
+                <a href="#">Books</a>
+                <a href="#">Pharmacy</a>
+            </div>
+            
+            <a href="#" class="prime-link">Prime Day Deals</a>
+        </div>
+    </header>
+    
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+        
+        <div class="carousel-nav">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+        </div>
+    </section>
+    
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <div class="category-name">Computers</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="category-name">Phones</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <div class="category-name">Fashion</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="category-name">Home</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="category-name">Books</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="category-name">Games</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <div class="category-name">Kitchen</div>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-icon">
+                <i class="fas fa-couch"></i>
+            </div>
+            <div class="category-name">Furniture</div>
+        </a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Cart</a></li>
-      </ul>
-    </nav>
-  </header>
+    
+    <!-- Product Sections -->
+    <section class="product-section">
+        <div class="section-header">
+            <h2>Today's Deals</h2>
+            <a href="#">See all deals</a>
+        </div>
+        
+        <div class="product-grid" id="deals-section">
+            <!-- Products will be added dynamically -->
+        </div>
+    </section>
+    
+    <section class="product-section">
+        <div class="section-header">
+            <h2>Best Sellers in Electronics</h2>
+            <a href="#">Shop now</a>
+        </div>
+        
+        <div class="product-grid" id="electronics-section">
+            <!-- Products will be added dynamically -->
+        </div>
+    </section>
+    
+    <section class="product-section">
+        <div class="section-header">
+            <h2>Home & Kitchen Essentials</h2>
+            <a href="#">Shop now</a>
+        </div>
+        
+        <div class="product-grid" id="home-section">
+            <!-- Products will be added dynamically -->
+        </div>
+    </section>
+    
+    <section class="product-section">
+        <div class="section-header">
+            <h2>Popular Books</h2>
+            <a href="#">See more</a>
+        </div>
+        
+        <div class="product-grid" id="books-section">
+            <!-- Products will be added dynamically -->
+        </div>
+    </section>
+    
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added dynamically -->
+        </div>
+        <div class="cart-total">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">$0.00</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+    
+    <!-- Footer -->
+    <div class="back-to-top" id="back-to-top">
+        <p>Back to top</p>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-links">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Get to Know Us</h3>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Amazon</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Amazon Devices</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Make Money with Us</h3>
+                    <ul>
+                        <li><a href="#">Sell products on Amazon</a></li>
+                        <li><a href="#">Sell on Amazon Business</a></li>
+                        <li><a href="#">Sell apps on Amazon</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Amazon Payment Products</h3>
+                    <ul>
+                        <li><a href="#">Amazon Business Card</a></li>
+                        <li><a href="#">Shop with Points</a></li>
+                        <li><a href="#">Reload Your Balance</a></li>
+                        <li><a href="#">Amazon Currency Converter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Let Us Help You</h3>
+                    <ul>
+                        <li><a href="#">Amazon and COVID-19</a></li>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Your Orders</a></li>
+                        <li><a href="#">Shipping Rates & Policies</a></li>
+                        <li><a href="#">Returns & Replacements</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+            </div>
+            <p class="copyright">© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Enhanced Product Data with more items
+        const products = [
+            {
+                id: 1,
+                name: "Sony WH-1000XM5 Wireless Headphones with Noise Cancellation",
+                price: 298.00,
+                discount: 40,
+                image: "https://m.media-amazon.com/images/I/71WkDp--uqL._AC_SX679_.jpg",
+                rating: 4.9,
+                reviews: 4283,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 2,
+                name: "Apple Watch Series 8 [GPS 41mm] Smart Watch",
+                price: 329.00,
+                discount: 25,
+                image: "https://m.media-amazon.com/images/I/71S8sK0xWJL._AC_SX679_.jpg",
+                rating: 4.4,
+                reviews: 12543,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 3,
+                name: "Echo Dot (5th Gen) with clock | Smart speaker with Alexa",
+                price: 39.99,
+                discount: 30,
+                image: "https://m.media-amazon.com/images/I/61L1ItFgFHL._AC_SX679_.jpg",
+                rating: 4.8,
+                reviews: 63829,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 4,
+                name: "Fire TV Stick 4K Max streaming device",
+                price: 34.99,
+                discount: 15,
+                image: "https://m.media-amazon.com/images/I/71qod7G2QES._AC_SX679_.jpg",
+                rating: 4.3,
+                reviews: 43217,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 5,
+                name: "Apple AirPods Pro (2nd Generation) Wireless Earbuds",
+                price: 199.00,
+                discount: 0,
+                image: "https://m.media-amazon.com/images/I/61vD07Vr6hL._AC_SX679_.jpg",
+                rating: 4.7,
+                reviews: 73492,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 6,
+                name: "Kindle Paperwhite (16 GB) - Now with a 6.8\" display",
+                price: 139.99,
+                discount: 10,
+                image: "https://m.media-amazon.com/images/I/61tE7IcuLmL._AC_SX679_.jpg",
+                rating: 4.5,
+                reviews: 42876,
+                prime: true,
+                category: "books"
+            },
+            {
+                id: 7,
+                name: "Instant Pot Duo 7-in-1 Electric Pressure Cooker",
+                price: 79.95,
+                discount: 20,
+                image: "https://m.media-amazon.com/images/I/61TD5JLGhIL._AC_SX679_.jpg",
+                rating: 4.8,
+                reviews: 87320,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 8,
+                name: "eufy BoostIQ RoboVac 11S MAX, Robot Vacuum Cleaner",
+                price: 159.99,
+                discount: 18,
+                image: "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SX679_.jpg",
+                rating: 4.2,
+                reviews: 23671,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 9,
+                name: "2022 Apple iPad Air (10.9-inch, Wi-Fi, 64GB) - Space Gray",
+                price: 499.00,
+                discount: 20,
+                image: "https://m.media-amazon.com/images/I/71z7dc7ZiQL._AC_SX679_.jpg",
+                rating: 4.6,
+                reviews: 18932,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 10,
+                name: "SAMSUNG 32\" Odyssey G5 Gaming Monitor with 1000R Curved Screen",
+                price: 249.99,
+                discount: 35,
+                image: "https://m.media-amazon.com/images/I/71geVdy6-OS._AC_SX679_.jpg",
+                rating: 4.3,
+                reviews: 8421,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 11,
+                name: "Acer Aspire 5 Slim Laptop, 15.6\" Full HD IPS Display",
+                price: 429.00,
+                discount: 18,
+                image: "https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_SX679_.jpg",
+                rating: 4.2,
+                reviews: 21348,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 12,
+                name: "JBL Flip 6 - Portable Bluetooth Speaker",
+                price: 89.95,
+                discount: 22,
+                image: "https://m.media-amazon.com/images/I/71rXSVqET9L._AC_SX679_.jpg",
+                rating: 4.8,
+                reviews: 15287,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 13,
+                name: "Samsung Galaxy S23 Ultra 5G Smartphone",
+                price: 1199.99,
+                discount: 15,
+                image: "https://m.media-amazon.com/images/I/61vD07Vr6hL._AC_SX679_.jpg",
+                rating: 4.8,
+                reviews: 22543,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 14,
+                name: "Dyson V11 Torque Drive Cordless Vacuum Cleaner",
+                price: 499.99,
+                discount: 20,
+                image: "https://m.media-amazon.com/images/I/61Y7C4iCURL._AC_SX679_.jpg",
+                rating: 4.7,
+                reviews: 18976,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 15,
+                name: "KitchenAid Artisan Stand Mixer 5-Qt",
+                price: 379.99,
+                discount: 10,
+                image: "https://m.media-amazon.com/images/I/71S8sK0xWJL._AC_SX679_.jpg",
+                rating: 4.9,
+                reviews: 34218,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 16,
+                name: "The Hobbit by J.R.R. Tolkien - Hardcover",
+                price: 24.99,
+                discount: 25,
+                image: "https://m.media-amazon.com/images/I/71X7gN0UwjL._AC_UL640_FMwebp_QL65_.jpg",
+                rating: 4.8,
+                reviews: 9876,
+                prime: true,
+                category: "books"
+            },
+            {
+                id: 17,
+                name: "Nintendo Switch OLED Model w/ White Joy-Con",
+                price: 349.99,
+                discount: 0,
+                image: "https://m.media-amazon.com/images/I/71wFcSf0VjL._AC_SX679_.jpg",
+                rating: 4.9,
+                reviews: 45678,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 18,
+                name: "Levi's Men's 501 Original Fit Jeans",
+                price: 59.50,
+                discount: 30,
+                image: "https://m.media-amazon.com/images/I/91X7gN0UwjL._AC_UL640_FMwebp_QL65_.jpg",
+                rating: 4.6,
+                reviews: 23456,
+                prime: true,
+                category: "fashion"
+            },
+            {
+                id: 19,
+                name: "Breville Barista Express Espresso Machine",
+                price: 699.95,
+                discount: 15,
+                image: "https://m.media-amazon.com/images/I/71WkDp--uqL._AC_SX679_.jpg",
+                rating: 4.7,
+                reviews: 8765,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 20,
+                name: "Atomic Habits by James Clear - Paperback",
+                price: 14.99,
+                discount: 20,
+                image: "https://m.media-amazon.com/images/I/71X7gN0UwjL._AC_UL640_FMwebp_QL65_.jpg",
+                rating: 4.8,
+                reviews: 54321,
+                prime: true,
+                category: "books"
+            },
+            {
+                id: 21,
+                name: "Sony PlayStation 5 Console",
+                price: 499.99,
+                discount: 0,
+                image: "https://m.media-amazon.com/images/I/619BkvKW35L._AC_SX679_.jpg",
+                rating: 4.9,
+                reviews: 76543,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 22,
+                name: "Ninja Foodi 10-in-1 Smart XL Air Fry Oven",
+                price: 229.99,
+                discount: 25,
+                image: "https://m.media-amazon.com/images/I/71qod7G2QES._AC_SX679_.jpg",
+                rating: 4.6,
+                reviews: 12345,
+                prime: true,
+                category: "home"
+            },
+            {
+                id: 23,
+                name: "Apple MacBook Pro 16-inch M2 Max Chip",
+                price: 2499.00,
+                discount: 10,
+                image: "https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_SX679_.jpg",
+                rating: 4.9,
+                reviews: 8765,
+                prime: true,
+                category: "electronics"
+            },
+            {
+                id: 24,
+                name: "The Silent Patient by Alex Michaelides - Paperback",
+                price: 9.99,
+                discount: 35,
+                image: "https://m.media-amazon.com/images/I/71X7gN0UwjL._AC_UL640_FMwebp_QL65_.jpg",
+                rating: 4.5,
+                reviews: 45678,
+                prime: true,
+                category: "books"
+            }
+        ];
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="" alt="Hero Banner">
-    <div class="hero-text">
-      <h1>Welcome to Amazon</h1>
-      <p>Your one-stop destination for everything you need.</p>
-    </div>
-  </section>
+        // Shopping cart
+        let cart = [];
+        let cartCount = 0;
+        let cartSubtotal = 0;
 
-  <!-- Product Grid -->
-  <section class="product-grid">
-    <div class="product">
-      <img src="images/product1.jpg" alt="Product 1">
-      <h3>Product 1</h3>
-      <p>Price: ₹999</p>
-    </div>
-    <div class="product">
-      <img src="images/product2.jpg" alt="Product 2">
-      <h3>Product 2</h3>
-      <p>Price: ₹1299</p>
-    </div>
-    <div class="product">
-      <img src="images/product3.jpg" alt="Product 3">
-      <h3>Product 3</h3>
-      <p>Price: ₹799</p>
-    </div>
-    <div class="product">
-      <img src="images/product4.jpg" alt="Product 4">
-      <h3>Product 4</h3>
-      <p>Price: ₹499</p>
-    </div>
-  </section>
+        // DOM Elements
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartItems = document.getElementById('cart-items');
+        const cartSubtotalElement = document.getElementById('cart-subtotal');
+        const backToTop = document.getElementById('back-to-top');
+        const dealsSection = document.getElementById('deals-section');
+        const electronicsSection = document.getElementById('electronics-section');
+        const homeSection = document.getElementById('home-section');
+        const booksSection = document.getElementById('books-section');
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Amazon Clone. All rights reserved.</p>
-  </footer>
+        // Initialize the app
+        function init() {
+            renderProducts();
+            setupEventListeners();
+            startCarousel();
+        }
+
+        // Render products to the page
+        function renderProducts() {
+            // Today's Deals
+            dealsSection.innerHTML = '';
+            products.filter(p => p.discount > 0).slice(0, 8).forEach(product => {
+                const productElement = createProductElement(product);
+                dealsSection.appendChild(productElement);
+            });
+            
+            // Electronics
+            electronicsSection.innerHTML = '';
+            products.filter(p => p.category === "electronics").slice(0, 8).forEach(product => {
+                const productElement = createProductElement(product);
+                electronicsSection.appendChild(productElement);
+            });
+            
+            // Home
+            homeSection.innerHTML = '';
+            products.filter(p => p.category === "home").slice(0, 8).forEach(product => {
+                const productElement = createProductElement(product);
+                homeSection.appendChild(productElement);
+            });
+            
+            // Books
+            booksSection.innerHTML = '';
+            products.filter(p => p.category === "books").slice(0, 8).forEach(product => {
+                const productElement = createProductElement(product);
+                booksSection.appendChild(productElement);
+            });
+        }
+
+        // Create product element
+        function createProductElement(product) {
+            const element = document.createElement('div');
+            element.className = 'product-card';
+            element.dataset.id = product.id;
+            
+            const savings = product.discount ? 
+                `<div class="product-savings">Save ${product.discount}%</div>` : '';
+            
+            const discountBadge = product.discount ? 
+                `<div class="deal-badge">${product.discount}% off</div>` : '';
+            
+            const primeBadge = product.prime ? 
+                `<div class="prime-badge"><i class="fas fa-check"></i> <span>FREE delivery for Prime members</span></div>` : '';
+            
+            element.innerHTML = `
+                ${discountBadge}
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="product-title">${product.name}</div>
+                <div class="product-rating">
+                    <div class="product-rating-stars">${getStarRating(product.rating)}</div>
+                    <div class="product-rating-count">(${product.reviews.toLocaleString()})</div>
+                </div>
+                <div class="product-price">$${product.price.toFixed(2)}</div>
+                ${savings}
+                ${primeBadge}
+                <div class="product-actions">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="wishlist"><i class="far fa-heart"></i></button>
+                </div>
+            `;
+            
+            return element;
+        }
+
+        // Get star rating HTML
+        function getStarRating(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (halfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            cartIcon.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            backToTop.addEventListener('click', scrollToTop);
+            
+            // Add to cart buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const productCard = e.target.closest('.product-card');
+                    const productId = parseInt(productCard.dataset.id);
+                    addToCart(productId);
+                }
+                
+                if (e.target.classList.contains('remove-item')) {
+                    const productId = parseInt(e.target.dataset.id);
+                    removeFromCart(productId);
+                }
+                
+                if (e.target.classList.contains('quantity-btn')) {
+                    const productId = parseInt(e.target.dataset.id);
+                    const action = e.target.dataset.action;
+                    updateQuantity(productId, action);
+                }
+                
+                // Wishlist button
+                if (e.target.closest('.wishlist')) {
+                    const wishlistBtn = e.target.closest('.wishlist');
+                    wishlistBtn.innerHTML = '<i class="fas fa-heart" style="color: #cc0c39;"></i>';
+                    wishlistBtn.style.borderColor = '#cc0c39';
+                    setTimeout(() => {
+                        alert('Added to your wishlist!');
+                    }, 300);
+                }
+            });
+        }
+
+        // Toggle cart modal
+        function toggleCart() {
+            cartModal.classList.toggle('active');
+            if (cartModal.classList.contains('active')) {
+                renderCartItems();
+            }
+        }
+
+        // Add product to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            // Check if product is already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            // Update cart count
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+            cartCountElement.classList.add('pulse');
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                cartCountElement.classList.remove('pulse');
+            }, 500);
+            
+            // Update cart subtotal
+            updateCartSubtotal();
+            
+            // Show notification
+            showNotification(`Added to cart: ${product.name}`);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #232f3e;
+                color: white;
+                padding: 15px 25px;
+                border-radius: 4px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 2000;
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(120%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Remove product from cart
+        function removeFromCart(productId) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            
+            if (itemIndex !== -1) {
+                // Update cart count
+                cartCount -= cart[itemIndex].quantity;
+                cartCountElement.textContent = cartCount;
+                
+                // Remove item from cart
+                cart.splice(itemIndex, 1);
+                
+                // Update cart
+                renderCartItems();
+                updateCartSubtotal();
+            }
+        }
+
+        // Update product quantity in cart
+        function updateQuantity(productId, action) {
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                if (action === 'increase') {
+                    item.quantity++;
+                    cartCount++;
+                } else if (action === 'decrease' && item.quantity > 1) {
+                    item.quantity--;
+                    cartCount--;
+                }
+                
+                // Update cart count
+                cartCountElement.textContent = cartCount;
+                
+                // Update cart
+                renderCartItems();
+                updateCartSubtotal();
+            }
+        }
+
+        // Render cart items
+        function renderCartItems() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Your Amazon Cart is empty</p>';
+                return;
+            }
+            
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                            <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                            <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">Delete</button>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+        }
+
+        // Update cart subtotal
+        function updateCartSubtotal() {
+            cartSubtotal = cart.reduce((total, item) => {
+                return total + (item.price * item.quantity);
+            }, 0);
+            
+            cartSubtotalElement.textContent = `$${cartSubtotal.toFixed(2)}`;
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Carousel functionality
+        function startCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show current slide
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+            
+            // Set up dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+            
+            // Auto-advance carousel
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 5000);
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
